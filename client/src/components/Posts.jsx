@@ -28,8 +28,8 @@ export default function Posts() {
   return (
     <>
       <div className="cat-posts">
-        {posts.map((post, index) => (
-          <div className="cat-post" key={index}>
+        {posts.map((post) => (
+          <div className="cat-post" key={post.id}>
             <h3>{post.username}</h3>
             <p>
               <strong>Date:</strong> {post.date}
@@ -45,7 +45,7 @@ export default function Posts() {
               {post.approach_score}/5
             </p>
 
-            {post.Comments && (
+            {post.comments && (
               <p>
                 <strong>Comments:</strong> {post.comments}
               </p>

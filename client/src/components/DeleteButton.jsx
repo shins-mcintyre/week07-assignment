@@ -1,8 +1,10 @@
 // Create a button component that makes use of the DELETE route
-export default function DeleteButton() {
+
+// delete button with prop onDelete
+export default function DeleteButton({ onDelete }) {
   return (
     <>
-      <button>Delete post</button>
+      <button onClick={onDelete}>Delete post</button>
     </>
   );
 }

@@ -40,6 +40,7 @@ app.get("/cat-posts", async (req, res) => {
     // query the db - what will appear
     const query = await db.query(
       `SELECT
+      id,
     username,
     date,
     location,
@@ -83,15 +84,21 @@ app.post("/new-cat", async (req, res) => {
 // Check this in POSTMAN - success!
 
 // Create a route to DELETE and entry
-app.delete("/delete-cat-post/:id", (req, res) => {
+app.delete("/delete-cat-post/:id", async (req, res) => {
   try {
     // access the value of my id params
-    const idParams = req.params.id;
+    const { id } = req.params;
     // query db
-    const query = db.query(`DELETE FROM cat_posts WHERE id=$1 RETURNING *`, [
-      idParams,
-    ]);
+    const result = await db.query(
+      `DELETE FROM cat_posts WHERE id=$1 RETURNING *`,
+      [id]
+    );
     res.status(200).json({ request: "successful DELETE" });
+    res.json(result.rows[0]);
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ message: "Post not found" });
+    }
   } catch (error) {
     console.error(error, "response failed for DELETE path");
     res.status(500).json({ request: "fail" });
@@ -106,6 +113,7 @@ app.get("/cat-posts/user/:username", async (req, res) => {
     const { username } = req.params;
     const result = await db.query(
       `SELECT
+      id,
       username,
       date,
       location,

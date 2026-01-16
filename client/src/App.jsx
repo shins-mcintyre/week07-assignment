@@ -11,6 +11,7 @@ export default function App() {
       <h1>Home</h1>
       {/* routing system */}
       <Form />
+      <Posts />
       <MyPosts />
     </>
   );

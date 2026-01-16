@@ -1,5 +1,6 @@
 // Here the user will see their own posts - db filtered by username
 import { useState, useEffect } from "react";
+import DeleteButton from "./DeleteButton";
 
 export default function MyPosts() {
   // state for image url
@@ -24,11 +25,31 @@ export default function MyPosts() {
     getMyPosts();
   }, []);
 
+  //   add delete function
+  async function handleDelete(id) {
+    try {
+      const response = await fetch(
+        `http://localhost:8080/delete-cat-post/${id}`,
+        { method: "DELETE" }
+      );
+      // !check why this is included?
+      if (!response.ok) {
+        throw new Error("Delete failed");
+      }
+
+      // remove deleted post from state
+      // ! this i had help from chat gpt - can't say i 100% understand the logic
+      setMyPosts((prevPosts) => prevPosts.filter((post) => post.id !== id));
+    } catch (error) {
+      console.error(error, "error deleting post");
+    }
+  }
+
   return (
     <>
       <div className="my-cat-posts">
-        {myPosts.map((myPost, index) => (
-          <div className="my-cat-post" key={index}>
+        {myPosts.map((myPost) => (
+          <div className="my-cat-post" key={myPost.id}>
             <h3>{myPost.username}</h3>
             <p>
               <strong>Date:</strong> {myPost.date}
@@ -44,7 +65,7 @@ export default function MyPosts() {
               {myPost.approach_score}/5
             </p>
 
-            {myPost.Comments && (
+            {myPost.comments && (
               <p>
                 <strong>Comments:</strong> {myPost.comments}
               </p>
@@ -56,6 +77,9 @@ export default function MyPosts() {
               alt="My cat sighting"
               style={{ width: "300px" }}
             />
+
+            {/* Insert delete button */}
+            <DeleteButton onDelete={() => handleDelete(myPost.id)} />
           </div>
         ))}
       </div>
