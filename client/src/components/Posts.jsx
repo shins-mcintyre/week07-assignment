@@ -30,33 +30,34 @@ export default function Posts() {
       <div className="cat-posts">
         {posts.map((post) => (
           <div className="cat-post" key={post.id}>
-            <h3>{post.username}</h3>
-            <p>
-              <strong>Date:</strong> {post.date}
-            </p>
-
-            <p>
-              <strong>Location:</strong> {post.location}
-            </p>
-
-            <p>
-              <strong>Approachability:</strong>
-              {""}
-              {post.approach_score}/5
-            </p>
-
-            {post.comments && (
-              <p>
-                <strong>Comments:</strong> {post.comments}
-              </p>
-            )}
-
             <img
               src={post.src}
               // ! Make this unique
               alt="Cat sighting"
-              style={{ width: "300px" }}
             />
+
+            <div className="post-details">
+              <h3>{post.username}</h3>
+              <p>
+                <strong>Date:</strong> {post.date}
+              </p>
+
+              <p>
+                <strong>Location:</strong> {post.location}
+              </p>
+
+              <p>
+                <strong>Approachability:</strong>
+                {""}
+                {post.approach_score}/5
+              </p>
+
+              {post.comments && (
+                <p>
+                  <strong>Comments:</strong> {post.comments}
+                </p>
+              )}
+            </div>
           </div>
         ))}
       </div>

@@ -47,36 +47,37 @@ export default function MyPosts() {
 
   return (
     <>
-      <div className="my-cat-posts">
+      <div className="cat-posts">
         {myPosts.map((myPost) => (
-          <div className="my-cat-post" key={myPost.id}>
-            <h3>{myPost.username}</h3>
-            <p>
-              <strong>Date:</strong> {myPost.date}
-            </p>
-
-            <p>
-              <strong>Location:</strong> {myPost.location}
-            </p>
-
-            <p>
-              <strong>Approachability:</strong>
-              {""}
-              {myPost.approach_score}/5
-            </p>
-
-            {myPost.comments && (
-              <p>
-                <strong>Comments:</strong> {myPost.comments}
-              </p>
-            )}
-
+          <div className="cat-post" key={myPost.id}>
             <img
               src={myPost.src}
               // ! Make this unique
               alt="My cat sighting"
-              style={{ width: "300px" }}
             />
+
+            <div className="post-details">
+              <h3>{myPost.username}</h3>
+              <p>
+                <strong>Date:</strong> {myPost.date}
+              </p>
+
+              <p>
+                <strong>Location:</strong> {myPost.location}
+              </p>
+
+              <p>
+                <strong>Approachability:</strong>
+                {""}
+                {myPost.approach_score}/5
+              </p>
+
+              {myPost.comments && (
+                <p>
+                  <strong>Comments:</strong> {myPost.comments}
+                </p>
+              )}
+            </div>
 
             {/* Insert delete button */}
             <DeleteButton onDelete={() => handleDelete(myPost.id)} />

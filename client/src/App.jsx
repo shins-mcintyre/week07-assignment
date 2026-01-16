@@ -1,6 +1,11 @@
 import Form from "./components/Form";
 import Posts from "./components/Posts";
 import MyPosts from "./components/MyPosts";
+import Header from "./components/Header";
+import CreatePostButton from "./components/CreatePostButton";
+import FilterButton from "./components/FilterButton";
+import Footer from "./components/Footer";
+import "./App.css";
 
 // TODO: set up a routing system and import relevant components
 // advice: have a component for your root route too ("/")
@@ -8,11 +13,18 @@ import MyPosts from "./components/MyPosts";
 export default function App() {
   return (
     <>
-      <h1>Home</h1>
+      <header>
+        <Header />
+      </header>
       {/* routing system */}
-      <Form />
-      <Posts />
-      <MyPosts />
+      <main>
+        <CreatePostButton />
+        <FilterButton />
+        <Posts />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }

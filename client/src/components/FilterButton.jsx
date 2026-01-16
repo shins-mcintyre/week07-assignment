@@ -1,7 +1,9 @@
+// This will take the user to view their own posts
+
 export default function FilterButton() {
   return (
     <>
-      <button>Filter results</button>
+      <button>View my posts</button>
     </>
   );
 }

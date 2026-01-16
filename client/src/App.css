@@ -1,0 +1,112 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* === HEADER === */
+header {
+  background-color: purple;
+}
+
+header h1 {
+}
+
+header p {
+}
+
+/* === MAIN === */
+main {
+  background-color: rgb(243, 142, 243);
+}
+
+.create-post-btn {
+}
+
+.cat-posts {
+  background-color: rgb(240, 240, 184);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.my-cat-posts {
+  background-color: rgb(240, 240, 184);
+  display: flex;
+  flex-direction: column;
+}
+
+.cat-post {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.cat-post img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.post-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.post-details h3 {
+  margin-bottom: 0.5rem;
+}
+
+.delete-button {
+}
+
+/* === FOOTER === */
+footer {
+  background-color: rgb(232, 220, 238);
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: rgb(74, 33, 33);
+  padding: 40px;
+  padding-top: 5rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#fb-logo {
+  max-height: 20px;
+  cursor: pointer;
+  padding-right: 10px;
+}
+
+#ig-logo {
+  max-height: 20px;
+  cursor: pointer;
+  padding-right: 10px;
+}
+
+#x-logo {
+  max-height: 20px;
+  cursor: pointer;
+}
+
+/* === RESPONSIVENESS === */
+@media (max-width: 600px) {
+  .cat-post {
+    flex-direction: column;
+  }
+  .cat-post img {
+    width: 100%;
+    height: auto;
+  }
+}

@@ -4,7 +4,9 @@
 export default function DeleteButton({ onDelete }) {
   return (
     <>
-      <button onClick={onDelete}>Delete post</button>
+      <button className="delete-button" onClick={onDelete}>
+        Delete post
+      </button>
     </>
   );
 }
