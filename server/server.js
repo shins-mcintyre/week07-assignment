@@ -34,4 +34,70 @@ app.get("/", (req, res) => {
   });
 });
 
+// READ CATS DATA - GET
+app.get("/cat-posts", async (req, res) => {
+  try {
+    // query the db - what will appear
+    const query = await db.query(
+      `SELECT
+    username AS "Username",
+    date AS "Date of sighting",
+    location AS "Location of sighting",
+    approach_score AS "Approachability scale",
+    comments AS "Comments",
+    src AS "Image link"
+    FROM cat_posts`
+    );
+    console.log(query.rows);
+    res.json(query.rows);
+  } catch (error) {
+    console.error(error, "Response failed to GET cat posts");
+    res.status(500).json({ request: "fail" });
+  }
+});
+
+// check if this works in Postman - it does!
+
+// CREATE CAT DATA - POST
+app.post("/new-cat", async (req, res) => {
+  try {
+    // collect data to insert
+    const { username, date, location, approach_score, comments, src } =
+      req.body;
+    // query database to insert data
+    const query = await db.query(
+      `INSERT INTO cat_posts
+      (username, date, location, approach_score, comments, src)
+      VALUES ($1, $2, $3, $4, $5, $6)
+      RETURNING *`,
+      [username, date, location, approach_score, comments, src]
+    );
+    res.status(200).json({ request: "success" });
+    res.json(query.rows);
+  } catch (error) {
+    console.error(error, "response failed for POST /new-cat path");
+    res.status(500).json({ request: "fail" });
+  }
+});
+
+// Check this in POSTMAN - success!
+
+// Create a route to DELETE and entry
+app.delete("/delete-cat-post/:id", (req, res) => {
+  try {
+    // access the value of my id params
+    const idParams = req.params.id;
+    // query db
+    const query = db.query(`DELETE FROM cat_posts WHERE id=$1 RETURNING *`, [
+      idParams,
+    ]);
+    res.status(200).json({ request: "successful DELETE" });
+  } catch (error) {
+    console.error(error, "response failed for DELETE path");
+    res.status(500).json({ request: "fail" });
+  }
+});
+
+// tested in postman - all working!
+
 // remember to store your secrets in .env file
