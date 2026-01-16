@@ -1,4 +1,5 @@
-#Requirements
+# Requirements
+
 🎯 Create a client using React.
 🎯 Use Express to create your server, using both GET and POST endpoints.
 🎯 Build a React form for users to create posts.
@@ -8,7 +9,8 @@
 🎯 Display all posts using .map().
 🎯 Use an interval and useEffect() to poll your database.
 
-#Stretch Requirements
+# Stretch Requirements
+
 🏹 Create dynamic pages using react-router.
 🏹 Use react-router to create a dedicated route for the categories
 For example, /posts/:categoryName.
@@ -16,10 +18,12 @@ For example, /posts/:categoryName.
 🏹 Add ‘like’ functionality on posts.
 🏹 Create additional SQL queries to show filtered posts.
 
-#Reflection
+# Reflection
+
 Please also provide an assignment reflection in your project README.md file.
 
-##Required
+## Required
+
 🎯 What requirements did you achieve?
 🎯 Were there any requirements or goals that you were unable to achieve?
 🎯 If so, what was it that you found difficult about these tasks?
