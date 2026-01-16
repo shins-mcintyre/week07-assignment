@@ -100,4 +100,27 @@ app.delete("/delete-cat-post/:id", (req, res) => {
 
 // tested in postman - all working!
 
+// GET route to get data from a specific user
+app.get("/cat-posts/user/:username", async (req, res) => {
+  try {
+    const { username } = req.params;
+    const result = await db.query(
+      `SELECT
+      username,
+      date,
+      location,
+      approach_score,
+      comments,
+      src
+      FROM cat_posts
+      WHERE username = $1`,
+      [username]
+    );
+    res.json(result.rows);
+  } catch (error) {
+    console.error("Failed to get user posts:", error);
+    res.status(500).json({ request: "fail" });
+  }
+});
+
 // remember to store your secrets in .env file

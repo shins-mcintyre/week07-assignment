@@ -23,6 +23,8 @@ For example, /posts/:categoryName.
 🏹 Add ‘like’ functionality on posts.
 🏹 Create additional SQL queries to show filtered posts.
 
+- was planning to make a separate GET route for the filtered page MyPosts, but I asked chat gpt and it recommended implementing
+
 # Reflection
 
 Please also provide an assignment reflection in your project README.md file.
