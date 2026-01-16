@@ -40,12 +40,12 @@ app.get("/cat-posts", async (req, res) => {
     // query the db - what will appear
     const query = await db.query(
       `SELECT
-    username AS "Username",
-    date AS "Date of sighting",
-    location AS "Location of sighting",
-    approach_score AS "Approachability scale",
-    comments AS "Comments",
-    src AS "Image link"
+    username,
+    date,
+    location,
+    approach_score,
+    comments,
+    src
     FROM cat_posts`
     );
     console.log(query.rows);
