@@ -64,6 +64,7 @@ main {
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
+  box-shadow: 0 2px 5px;
 }
 
 .create-post-btn:hover {
@@ -78,25 +79,51 @@ main {
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
+  box-shadow: 0 2px 5px;
 }
 
 .filter-button:hover {
   opacity: 0.9;
 }
 
-.cat-posts {
+/* === POSTS === */
+
+.cat-posts-page {
+  display: flex;
+  justify-content: center;
   background-color: #fff2af;
+  padding-bottom: 4rem;
+}
+
+.cat-posts-wrapper {
+  background: #493d9e;
+  border-radius: 24px;
+  padding: 3rem 3rem 2.5rem;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.posts-title {
+  color: #fff2af;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.cat-posts {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-  justify-content: center;
 }
 
 .cat-post {
-  background: #fff2af;
+  background: #dad2ff;
+  color: #493d9e;
   border-radius: 12px;
   padding: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -104,6 +131,14 @@ main {
   gap: 1rem;
   align-items: flex-start;
   max-width: 600px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cat-post:hover {
+  transform: translatY(-4px);
+  box-shadow: 0 12px 30px #1d1941;
 }
 
 .cat-post img {
@@ -112,6 +147,11 @@ main {
   object-fit: cover;
   border-radius: 8px;
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.cat-post:hover img {
+  transform: scale(1.03);
 }
 
 .post-details {
@@ -145,7 +185,7 @@ main {
   padding: 3rem 4rem;
   width: 100%;
   max-width: 800px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 40px #1d1941;
   margin-bottom: 3rem;
 }
 

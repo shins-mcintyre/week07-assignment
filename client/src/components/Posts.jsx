@@ -26,41 +26,44 @@ export default function Posts() {
   }, []);
 
   return (
-    <>
-      <div className="cat-posts">
-        {posts.map((post) => (
-          <div className="cat-post" key={post.id}>
-            <img
-              src={post.src}
-              // ! Make this unique
-              alt="Cat sighting"
-            />
+    <section className="cat-posts-page">
+      <div className="cat-posts-wrapper">
+        <h2 className="posts-title">Recent sightings</h2>
+        <div className="cat-posts">
+          {posts.map((post) => (
+            <div className="cat-post" key={post.id}>
+              <img
+                src={post.src}
+                // ! Make this unique
+                alt="Cat sighting"
+              />
 
-            <div className="post-details">
-              <h3>{post.username}</h3>
-              <p>
-                <strong>Date: </strong> {post.date}
-              </p>
-
-              <p>
-                <strong>Location: </strong> {post.location}
-              </p>
-
-              <p>
-                <strong>Approachability: </strong>
-                {""}
-                {post.approach_score}/5
-              </p>
-
-              {post.comments && (
+              <div className="post-details">
+                <h3>{post.username}</h3>
                 <p>
-                  <strong>Comments: </strong> {post.comments}
+                  <strong>Date: </strong> {post.date}
                 </p>
-              )}
+
+                <p>
+                  <strong>Location: </strong> {post.location}
+                </p>
+
+                <p>
+                  <strong>Approachability: </strong>
+                  {""}
+                  {post.approach_score}/5
+                </p>
+
+                {post.comments && (
+                  <p>
+                    <strong>Comments: </strong> {post.comments}
+                  </p>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </>
+    </section>
   );
 }
