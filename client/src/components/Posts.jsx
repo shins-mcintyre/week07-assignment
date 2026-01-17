@@ -7,6 +7,8 @@ import { useState, useEffect } from "react";
 export default function Posts() {
   // state for image url
   const [posts, setPosts] = useState([]);
+  // for filters
+  const [filter, setFilter] = useState("recent");
 
   //   functions (event handlers)
   // I don't think I need these now because I just want all images to appear
@@ -25,12 +27,38 @@ export default function Posts() {
     getPosts();
   }, []);
 
+  // filters
+  const filteredPosts = [...posts].sort((a, b) => {
+    if (filter === "friendly") {
+      return b.approach_score - a.approach_score;
+    }
+    // recent (default)
+    return new Date(b.date) - new Date(a.date);
+  });
+
   return (
     <section className="cat-posts-page">
       <div className="cat-posts-wrapper">
         <h2 className="posts-title">Recent sightings</h2>
+
+        <div className="post-filters">
+          <button
+            className={filter === "recent" ? "active" : ""}
+            onClick={() => setFilter("recent")}
+          >
+            Recent
+          </button>
+
+          <button
+            className={filter === "friendly" ? "active" : ""}
+            onClick={() => setFilter("friendly")}
+          >
+            Friendliest
+          </button>
+        </div>
+
         <div className="cat-posts">
-          {posts.map((post) => (
+          {filteredPosts.map((post) => (
             <div className="cat-post" key={post.id}>
               <img
                 src={post.src}
