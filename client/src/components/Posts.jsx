@@ -39,22 +39,22 @@ export default function Posts() {
             <div className="post-details">
               <h3>{post.username}</h3>
               <p>
-                <strong>Date:</strong> {post.date}
+                <strong>Date: </strong> {post.date}
               </p>
 
               <p>
-                <strong>Location:</strong> {post.location}
+                <strong>Location: </strong> {post.location}
               </p>
 
               <p>
-                <strong>Approachability:</strong>
+                <strong>Approachability: </strong>
                 {""}
                 {post.approach_score}/5
               </p>
 
               {post.comments && (
                 <p>
-                  <strong>Comments:</strong> {post.comments}
+                  <strong>Comments: </strong> {post.comments}
                 </p>
               )}
             </div>

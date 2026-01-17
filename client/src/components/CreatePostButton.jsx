@@ -1,7 +1,7 @@
 export default function CreatePostButton() {
   return (
     <>
-      <button>Create Post</button>
+      <button className="create-post-btn">Create Post</button>
     </>
   );
 }

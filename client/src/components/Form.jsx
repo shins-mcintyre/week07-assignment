@@ -67,8 +67,10 @@ export default function Form() {
   // 4. Create the form, with event handler on submit
   return (
     <>
-      <h2>Spotted a cat?</h2>
-      <h3>Don't be selfish, share it with the world!</h3>
+      <section className="form-title">
+        <h2>Spotted a cat?</h2>
+        <h3>Don't be selfish, share it with the world!</h3>
+      </section>
       <form onSubmit={handleFormSubmit}>
         <label htmlFor="username">Your username:</label>
         <input
@@ -129,12 +131,12 @@ export default function Form() {
       </form>
 
       {/* test if it works */}
-      <p>Username: {formValues.username}</p>
+      {/* <p>Username: {formValues.username}</p>
       <p>Date: {formValues.date}</p>
       <p>Location: {formValues.location}</p>
       <p>Approachability score: {formValues.approach_score}</p>
       <p>Comments:{formValues.comments}</p>
-      <p>Link: {formValues.src}</p>
+      <p>Link: {formValues.src}</p> */}
     </>
   );
 }

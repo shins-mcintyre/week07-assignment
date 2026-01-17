@@ -17,13 +17,15 @@
 # Stretch Requirements
 
 🏹 Create dynamic pages using react-router.
-🏹 Use react-router to create a dedicated route for the categories
+
+<!-- 🏹 Use react-router to create a dedicated route for the categories --> I think this is what I did with the MyPosts page?
+
 For example, /posts/:categoryName.
-🏹 Allow users to delete posts.
+
+<!-- 🏹 Allow users to delete posts. -->
+
 🏹 Add ‘like’ functionality on posts.
 🏹 Create additional SQL queries to show filtered posts.
-
-- was planning to make a separate GET route for the filtered page MyPosts, but I asked chat gpt and it recommended implementing
 
 # Reflection
 

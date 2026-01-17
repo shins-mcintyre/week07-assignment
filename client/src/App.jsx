@@ -1,9 +1,8 @@
-import Form from "./components/Form";
-import Posts from "./components/Posts";
-import MyPosts from "./components/MyPosts";
+import { Routes, Route, Link } from "react-router";
 import Header from "./components/Header";
-import CreatePostButton from "./components/CreatePostButton";
-import FilterButton from "./components/FilterButton";
+import Posts from "./components/Posts";
+import Form from "./components/Form";
+import MyPosts from "./components/MyPosts";
 import Footer from "./components/Footer";
 import "./App.css";
 
@@ -16,11 +15,23 @@ export default function App() {
       <header>
         <Header />
       </header>
-      {/* routing system */}
+
       <main>
-        <CreatePostButton />
-        <FilterButton />
-        <Posts />
+        <section className="button-section">
+          <Link className="create-post-btn" to="/create-post">
+            Create post
+          </Link>
+          <Link className="filter-button" to="/my-posts">
+            View my posts
+          </Link>
+        </section>
+
+        {/* routing system */}
+        <Routes>
+          <Route path="/" element={<Posts />} />
+          <Route path="/create-post" element={<Form />} />
+          <Route path="/my-posts" element={<MyPosts />} />
+        </Routes>
       </main>
       <footer>
         <Footer />

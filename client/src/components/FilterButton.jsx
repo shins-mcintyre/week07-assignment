@@ -3,7 +3,7 @@
 export default function FilterButton() {
   return (
     <>
-      <button>View my posts</button>
+      <button className="filter-button">View my posts</button>
     </>
   );
 }

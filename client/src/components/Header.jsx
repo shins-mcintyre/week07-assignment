@@ -1,9 +1,13 @@
+import { Link } from "react-router";
+
 export default function Header() {
   return (
     <>
       <header>
-        <h1>XIAOMAO</h1>
-        <p>Tagline</p>
+        <Link to="/" className="site-title">
+          <h1>XIAOMAO</h1>
+        </Link>
+        <p className="tagline">"Little Cat"</p>
       </header>
     </>
   );
