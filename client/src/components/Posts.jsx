@@ -2,13 +2,16 @@
 // use map() to get all the data on the page
 // TODO: render data from database
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Posts() {
   // state for image url
   const [posts, setPosts] = useState([]);
   // for filters
   const [filter, setFilter] = useState("recent");
+  // infinite scroll
+  const [visibleCount, setVisibleCount] = useState(5);
+  const loadMoreRef = useRef(null);
 
   //   functions (event handlers)
   // I don't think I need these now because I just want all images to appear
@@ -25,6 +28,23 @@ export default function Posts() {
       }
     }
     getPosts();
+  }, []);
+
+  // infinite scroll use effect
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setVisibleCount((prev) => prev + 5);
+        }
+      },
+      { threshold: 1 },
+    );
+
+    if (loadMoreRef.current) {
+      observer.observe(loadMoreRef.current);
+    }
+    return () => observer.disconnect();
   }, []);
 
   // filters
@@ -58,7 +78,7 @@ export default function Posts() {
         </div>
 
         <div className="cat-posts">
-          {filteredPosts.map((post) => (
+          {filteredPosts.slice(0, visibleCount).map((post) => (
             <div className="cat-post" key={post.id}>
               <img
                 src={post.src}
@@ -90,6 +110,7 @@ export default function Posts() {
               </div>
             </div>
           ))}
+          <div ref={loadMoreRef} className="load-more-trigger" />
         </div>
       </div>
     </section>

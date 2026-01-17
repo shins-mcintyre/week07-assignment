@@ -4,7 +4,7 @@
 <!-- 🎯 Use Express to create your server, using both GET and POST endpoints. -->
 <!-- 🎯 Build a React form for users to create posts. -->
 
-🎯 Create multiple pages using React Router.
+<!-- 🎯 Create multiple pages using React Router. -->
 
 <!-- 🎯 Design a database schema, and seed the database with some realistic data. -->
 
@@ -16,7 +16,7 @@
 
 # Stretch Requirements
 
-🏹 Create dynamic pages using react-router.
+🏹 Create dynamic pages using react-router. - what is this?
 
 <!-- 🏹 Use react-router to create a dedicated route for the categories --> I think this is what I did with the MyPosts page?
 
