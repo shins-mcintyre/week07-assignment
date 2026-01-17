@@ -12,7 +12,8 @@
 
 /* === HEADER === */
 Header {
-  background-color: purple;
+  background-color: #fff2af;
+  color: #493d9e;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,24 +26,24 @@ Header {
   color: inherit;
 }
 
-Header h1 {
+header h1 {
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 5rem;
 }
 
-Header h1:hover {
+header h1:hover {
   opacity: 0.85;
   cursor: pointer;
 }
 
-Header p {
+header p {
   font-weight: 500;
   font-size: 1.25rem;
 }
 
 /* === MAIN === */
 main {
-  background-color: rgb(243, 142, 243);
+  background-color: #fff2af;
 }
 
 .button-section {
@@ -51,13 +52,15 @@ main {
   padding: 3rem;
   justify-content: center;
   gap: 2.5rem;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
 }
 
 .create-post-btn {
   display: inline-block;
   padding: 0.75rem 1.25rem;
-  background: purple;
-  color: white;
+  background: #b2a5ff;
+  color: #493d9e;
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
@@ -70,8 +73,8 @@ main {
 .filter-button {
   display: inline-block;
   padding: 0.75rem 1.25rem;
-  background: purple;
-  color: white;
+  background: #b2a5ff;
+  color: #493d9e;
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
@@ -82,7 +85,7 @@ main {
 }
 
 .cat-posts {
-  background-color: rgb(240, 240, 184);
+  background-color: #fff2af;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -93,7 +96,7 @@ main {
 }
 
 .cat-post {
-  background: white;
+  background: #fff2af;
   border-radius: 12px;
   padding: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -122,7 +125,93 @@ main {
   font-weight: 700;
 }
 
+/* === MY POSTS === */
 .delete-button {
+}
+
+/* === FORM === */
+
+.cat-form-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff2af;
+}
+
+.cat-form-wrapper {
+  background: #493d9e;
+  border-radius: 24px;
+  padding: 3rem 4rem;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+}
+
+.cat-form {
+  background-color: #493d9e;
+  border-radius: 16px;
+  padding: 2.5rem;
+}
+
+.form-title {
+  padding: 1rem;
+  color: #fff2af;
+  margin-left: 4rem;
+}
+
+.form-title h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.form-row label {
+  color: white;
+  font-weight: 500;
+  text-align: right;
+}
+
+.form-row input {
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+}
+
+.cat-form button {
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: #dad2ff;
+  color: #493d9e;
+}
+
+.cat-form button:hover {
+  background-color: #b2a5ff;
+}
+
+/* responsive */
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .form-row label {
+    text-align: left;
+  }
 }
 
 /* === FOOTER === */
